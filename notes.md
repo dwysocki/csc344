@@ -958,5 +958,55 @@ ideas:
 1 * "hi mom" # evaluates to "hi mom"
 {% endhighlight %}
 
+Generic Types
+
+{% highlight java %}
+class Stack<T> {
+  void push(T x) {}
+
+  T pop() {}
+}
+
+/* ... */
+class Person {}
+class Student extends Person {}
+class Boss    extends Person {}
 
 
+
+static void main() {
+  Stack<Person> s = new Stack<Person>();
+
+  s.push(new Person());
+  s.push(new Student());
+
+  /* everything was good up till here */
+  Student p = s.pop();
+}
+
+/* to allow for what we did above, java lets you do */
+void push(<? extends T> x) {}
+{% endhighlight %}
+
+In scala, it's even simpler
+
+{% highlight scala %}
+class Stack[T] {
+  /* +T is the same as <? extends T> */
+  def push(x: +T): Unit = {}
+}
+{% endhighlight %}
+
+Java also has `<? super T>`, which is written as `[-T]` in Scala.
+
+These two things are called covariance and contravariance
+
+{% highlight scala %}
+trait Function[-A, +R] {
+  def apply(x: A): R = {}
+}
+
+/* for instance */
+val f: Function[Number, Long]
+/* takes any number, but always returns a long */
+{% endhighlight %}
