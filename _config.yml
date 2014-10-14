@@ -1,0 +1,15 @@
+# Site settings
+title: Programming Languages
+email: dwysocki@oswego.edu
+description: >
+  Dan Wysocki's course page for the fall section of
+  Programming Languages (CSC 344).
+baseurl: "/csc344"
+url: "http://dwysocki.github.io/csc344"
+github_username: dwysocki
+
+# Build settings
+markdown: kramdown
+kramdown:
+  use_coderay: true
+highlighter: pygments
