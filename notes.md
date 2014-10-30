@@ -1003,10 +1003,11 @@ These two things are called covariance and contravariance
 
 {% highlight scala %}
 trait Function[-A, +R] {
-  def apply(x: A): R = {}
+  def apply(x: A): R = { /* ... */ }
 }
 
 /* for instance */
 val f: Function[Number, Long]
 /* takes any number, but always returns a long */
 {% endhighlight %}
+
