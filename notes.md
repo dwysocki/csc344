@@ -1011,3 +1011,50 @@ val f: Function[Number, Long]
 /* takes any number, but always returns a long */
 {% endhighlight %}
 
+# Declarative Languages
+
+"what, not how"
+
+- database query languages
+    - SQL
+
+{% highlight sql %}
+select * from people
+  where name = smith
+{% endhighlight %}
+
+- logic programming
+    - "proofs = programs"
+    - languages
+        - prolog
+        - datalog (SQL + prolog)
+
+`a` is married to `b`;
+`a` is the parent of `c`, `e`, and `f`;
+`c` is the parent of `d`.
+
+{% highlight prolog %}
+wed(a, b).
+par(a, c).
+par(a, e).
+par(a, f).
+
+m(b).
+f(a).
+f(c).
+
+mother(X, Y)      :- par(X, Y), f(X).
+married(X, Y)     :- wed(X, Y).
+married(X, Y)     :- wed(Y, X).
+parent(X, Y)      :- par(X, Y).
+parent(X, Y)      :- married(X, Z), par(Z, Y).
+grandparent(X, Y) :- parent(X, Z), parent(Z, Y).
+ancestor(X, Y)    :- parent(X, Y).
+ancestor(X, Y)    :- parent(X, Z), ancestor(Z, Y).
+sibling(X, Y)     :- parent(Z, X), parent(Z, Y).
+sister(X, Y)      :- sibling(X, Y), f(X).
+brother(X, Y)     :- sibling(X, Y), m(X).
+aunt(X, Y)        :- parent(Z, Y), sister(X, Z).
+uncle(X, Y)       :- parent(Z, Y), brother(X, Z).
+cousin(X, Y)      :- grandparent(Z, X), grandparent(Z, Y).
+{% endhighlight %}
