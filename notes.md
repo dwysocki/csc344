@@ -1058,3 +1058,14 @@ aunt(X, Y)        :- parent(Z, Y), sister(X, Z).
 uncle(X, Y)       :- parent(Z, Y), brother(X, Z).
 cousin(X, Y)      :- grandparent(Z, X), grandparent(Z, Y).
 {% endhighlight %}
+
+## Curry--Howard Isomorphism
+
+- Church--Turing Thesis
+    - computable functions
+- Curry--Howard Isomorphism
+    - relation between types and logic
+    - "The typed lambda calculus is just logic in disguise" -- D.L.
+    - propositions are types
+    - type checking is proof
+    - proofs are programs
