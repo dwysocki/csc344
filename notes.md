@@ -1069,3 +1069,64 @@ cousin(X, Y)      :- grandparent(Z, X), grandparent(Z, Y).
     - propositions are types
     - type checking is proof
     - proofs are programs
+
+# State
+
+- procedural
+    - variables
+- functional
+    - propogate values
+- relational/logic
+    - prove properties of values
+
+How does IO map to these ideas?
+
+- procedural
+    - read as variables, write as variables
+- functional
+    - a stream of values
+    - monads
+        - still true functions, because they have a closure of the history
+          of values
+- relational/logic
+    - Prolog basically says
+      "here's the IO module, it's really there for debugging so do whatever"
+    - Oz is a logic programming language which also has objects
+
+Encapsulation
+
+- insides vs outsides
+- the entire idea behind an API
+- why?
+    - control
+      - creates two classes of programmers
+          - component authors
+          - component users
+    - specs/standardization
+- ADT (abstract data type)
+    - you have values and operations
+    - closed under the operations
+    - classic example is complex numbers
+        - real and imaginary parts
+        - arithmetic operations
+- objects/classes
+    - in a sense, a superset of ADTs
+    - have both imports and exports
+        - if your `Shape` class has a `Point` field, it is depending on that
+          external `Point` class
+    - configuration
+        - if your class has a `Set` field,
+          do you use a `HashSet` or a `TreeSet`?
+        - decisions, decisions
+        - factories and polymorphism exist to delay these decisions
+    - can you have objects without classes?
+        - the answer is yes
+        - the first language to support this idea was Self
+        - strategies
+            - objects + interfaces + factories
+                - Emerald
+                    - distributed language
+                    - every object was on a different computer
+                    - classes didn't really make sense in this context
+            - objects + clone + add feature (prototype)
+                - JavaScript
