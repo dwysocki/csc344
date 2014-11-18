@@ -1130,3 +1130,47 @@ Encapsulation
                     - classes didn't really make sense in this context
             - objects + clone + add feature (prototype)
                 - JavaScript
+
+# Scripting, Dynamic, and Domain-Specific Languages
+
+Scripting Languages
+
+- python, ruby, javascript, php, bash/sh
+- characteristics
+    - interpreters
+    - declarative overhead
+        - dynamically typed
+        - inferred types
+        - optionally typed
+            - Dart
+            - [Cosmos](https://github.com/mcsoto/cosmos) (brand new)
+            - Swift (laaaame)
+    - sugar
+        - syntax vs APIs
+        - entirely about human factors
+
+Domain-Specific Languages
+
+- vectors/matrices
+    - APL (a programming language)
+{% highlight apl %}
+A ← B × C
+{% endhighlight %}
+- web pages
+    - php
+{% highlight php %}
+<li select * from database>
+{% endhighlight %}
+- UI
+    - javascript
+{% highlight javascript %}
+onMouseOver( /* ... */ )
+{% endhighlight %}
+- gains
+    - expressiveness
+    - smaller learning curve
+- losses
+    - modularity
+    - encapsulation
+    - scalability
+    - performance
